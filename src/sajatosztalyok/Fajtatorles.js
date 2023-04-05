@@ -113,13 +113,12 @@ export default class FetchExample extends React.Component {
           renderItem={({item}) => 
 
           <View >
-          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.fajta_fajta} </Text>
-          
+          <Text style={{color:"blue",fontSize:20,textAlign:"center",backgroundColor:"lightblue"}}   >{item.fajta_fajta} </Text>
           <TouchableOpacity
         style={styles.kekgomb}
         onPress={async ()=>this.torles(item.fajta_id)}
       >
-        <Text style={{color:"white",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
+        <Text style={{color:"red",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
       </TouchableOpacity>
           </View>
         

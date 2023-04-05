@@ -89,7 +89,7 @@ class App extends Component {
             {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/Torles_kiadas"} className="nav-link">
-                  Admin Törlés
+                  Kiadás törlés
                 </Link>
               </li>
             )}
@@ -97,7 +97,7 @@ class App extends Component {
             {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/Torles_koltsegfajta"} className="nav-link">
-                  Admin Törlés 2
+                  Költségfajta törlés
                 </Link>
               </li>
             )}
@@ -106,7 +106,7 @@ class App extends Component {
             {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/Fajtatorles"} className="nav-link">
-                  Fajta törlés
+                  Bevételfajta törlés
                 </Link>
               </li>
             )}

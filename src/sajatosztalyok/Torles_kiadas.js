@@ -67,6 +67,11 @@ osszeg=()=>{
 
 }
 
+levag=(datum2)=>{
+  let split=datum2.split('T')
+  return split[0]
+  }
+
   render() {
     const { data, isLoading } = this.state;
 
@@ -84,20 +89,20 @@ osszeg=()=>{
               <View style={{marginBottom:30}}>
 
                 
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
+              <Text style={{fontSize:30,color:'blue',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
 
-              <Text style={{fontSize:20,color:'green',textAlign:'center'}}>
+              <Text style={{fontSize:20,color:'black',textAlign:'center'}}>
                 {item.kiadas_nev}
               </Text>
 
-              <Text style={{fontSize:20,color:'blue',textAlign:'center'}}>
+              <Text style={{fontSize:20,color:'green',textAlign:'center'}}>
                 {item.kiadas_ar} ft
               </Text>
 
               <Text style={{fontSize:20,color:'purple',textAlign:'center'}}>
-                {item.kiadas_datum}
+              {this.levag(item.kiadas_datum)}
               </Text>
 
 
@@ -131,8 +136,9 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#82AAE3",
     padding: 10,
+    width:30,
     marginLeft:30,
     marginRight:30
   },

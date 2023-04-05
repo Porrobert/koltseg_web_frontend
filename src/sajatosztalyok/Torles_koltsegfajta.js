@@ -70,18 +70,18 @@ osszeg=()=>{
 
     return (
       <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
-        
-        <Text  style={{fontSize:20,}}>Összeg: {this.state.osszeg} ft</Text>
+        <Text  style={{fontSize:20,color:"green"}}>Összeg: {this.state.osszeg} ft</Text>
 
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
             data={data}
             keyExtractor={({ kiadas_id }, index) => kiadas_id}
             renderItem={({ item }) => (
-              <View style={{marginBottom:30}}>
+              <View style={{marginBottom:30,}}>
+                <View style={{alignItems:'center'}}>
 
                 
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
+              <Text style={{fontSize:30,color:'blue',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
 
@@ -100,9 +100,12 @@ osszeg=()=>{
         >
           <Text style={{color:'white',fontSize:20}}>Törlés</Text>
         </TouchableOpacity>
-              <Text style={{borderBottomColor:'black',borderBottomWidth:5}}>
+        </View>
+        
+              <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}>
 
               </Text>
+        
                   
               </View>
             )}
@@ -122,10 +125,11 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#FF2626",
     padding: 10,
-    marginLeft:30,
-    marginRight:30
+    width:300,
+    justifyContent:'center',
+    borderRadius:10
   },
   countContainer: {
     alignItems: "center",

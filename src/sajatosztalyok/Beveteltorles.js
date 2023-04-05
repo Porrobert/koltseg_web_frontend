@@ -105,15 +105,16 @@ export default class FetchExample extends React.Component {
     }
 
     return(
-      <View style={{flex: 1, paddingTop:20}}>
-
+      <View style={{flex: 1, paddingTop:20,backgroundColor:"lightblue"}}>
+        
 {/*--------------------------------------------------------- Találatok */}       
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => 
 
           <View >
-          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.bevetel_osszeg} </Text>
+          <Text style={{color:"green",fontSize:20,textAlign:"center",backgroundColor:"lightblue"}}   >{item.fajta_fajta} </Text>
+          <Text style={{color:"green",fontSize:20,textAlign:"center",marginBottom:5}}   >{item.bevetel_osszeg}Ft </Text>
           
           <TouchableOpacity
         style={styles.kekgomb}
@@ -121,6 +122,11 @@ export default class FetchExample extends React.Component {
       >
         <Text style={{color:"white",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
       </TouchableOpacity>
+      
+
+      <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}>
+
+              </Text>
           </View>
         
         }
@@ -137,10 +143,12 @@ const styles = StyleSheet.create({
   
   kekgomb: {
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#FF2626",
+    borderRadius:10,
     padding: 10,
     width:300,
     marginLeft:"auto",
     marginRight:"auto",
+    marginBottom:5
   }
 });
