@@ -105,7 +105,7 @@ export default class FetchExample extends React.Component {
     }
 
     return(
-      <View style={{flex: 1, paddingTop:20}}>
+      <View style={{flex: 1, paddingTop:20,backgroundColor:"lightblue"}}>
 
 {/*--------------------------------------------------------- Találatok */}       
         <FlatList
@@ -118,8 +118,11 @@ export default class FetchExample extends React.Component {
         style={styles.kekgomb}
         onPress={async ()=>this.torles(item.fajta_id)}
       >
-        <Text style={{color:"red",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
+        <Text style={{color:"white",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
       </TouchableOpacity>
+      <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:15}}>
+
+              </Text>
           </View>
         
         }
@@ -136,10 +139,13 @@ const styles = StyleSheet.create({
   
   kekgomb: {
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#FF2626",
+    borderRadius:10,
     padding: 10,
     width:300,
     marginLeft:"auto",
     marginRight:"auto",
+    borderRadius:10,
+    borderWidth:3
   }
 });

@@ -78,8 +78,7 @@ levag=(datum2)=>{
 
     return (
       <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
-
-        <Text  style={{fontSize:20,}}>Összeg:{this.state.osszeg} ft</Text>
+        <Text  style={{fontSize:20,color:"green"}}>Összeg:{this.state.osszeg} ft</Text>
 
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
@@ -88,7 +87,9 @@ levag=(datum2)=>{
             renderItem={({ item }) => (
               <View style={{marginBottom:30}}>
 
+              <View style={{alignItems:"center"}}>
                 
+
               <Text style={{fontSize:30,color:'blue',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
@@ -109,13 +110,13 @@ levag=(datum2)=>{
               <Image source={{uri:item.fajta_kep}}
               style={{width:100,height:100,alignSelf:'center',color:'Red',margin:10}}/>
 
-
              <TouchableOpacity
           style={styles.button}
           onPress={async ()=>this.torles(item.kiadas_id)}
         >
           <Text style={{color:'white',fontSize:20}}>Törlés</Text>
         </TouchableOpacity>
+        </View>
                   
              <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
               </View>
@@ -136,11 +137,14 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "#82AAE3",
+    backgroundColor: "#FF2626",
+    borderRadius:10,
     padding: 10,
-    width:30,
+    width:300,
     marginLeft:30,
-    marginRight:30
+    marginRight:30,
+    borderRadius:10,
+    borderWidth:3
   },
   countContainer: {
     alignItems: "center",

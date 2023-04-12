@@ -21,6 +21,8 @@ import Torles_koltsegfajta from "./sajatosztalyok/Torles_koltsegfajta"
 import Nevjegy from "./sajatosztalyok/Nevjegy"
 import Beveteltorles from "./sajatosztalyok/Beveteltorles"
 import Fajtatorles from "./sajatosztalyok/Fajtatorles"
+import Felvitel from "./sajatosztalyok/Felvitel"
+import Felvitel_bev from "./sajatosztalyok/Felvitel_bev"
 
 class App extends Component {
   constructor(props) {
@@ -82,6 +84,16 @@ class App extends Component {
             <li className="nav-item">
               <Link to={"/Beveteltorles"} className="nav-link">
                 Bevétel törlés
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/Felvitel"} className="nav-link">
+                Kiadás Felvitele
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/Felvitel"} className="nav-link">
+                Bevétel Felvitele
               </Link>
             </li>
 
@@ -165,6 +177,8 @@ class App extends Component {
             <Route path="/Nevjegy" component={Nevjegy} />
             <Route path="/Beveteltorles" component={Beveteltorles} />
             <Route path="/Fajtatorles" component={Fajtatorles} />
+            <Route path="/Felvitel" component={Felvitel} />
+            <Route path="/Felvitel_bev" component={Felvitel_bev} />
 
           </Switch>
         </div>

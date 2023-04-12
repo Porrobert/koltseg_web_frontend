@@ -78,6 +78,7 @@ osszeg=()=>{
             keyExtractor={({ kiadas_id }, index) => kiadas_id}
             renderItem={({ item }) => (
               <View style={{marginBottom:30,}}>
+                
                 <View style={{alignItems:'center'}}>
 
                 
@@ -129,7 +130,9 @@ const styles = StyleSheet.create({
     padding: 10,
     width:300,
     justifyContent:'center',
-    borderRadius:10
+    borderRadius:10,
+    borderRadius:10,
+    borderWidth:3
   },
   countContainer: {
     alignItems: "center",

@@ -114,7 +114,7 @@ export default class FetchExample extends React.Component {
 
           <View >
           <Text style={{color:"green",fontSize:20,textAlign:"center",backgroundColor:"lightblue"}}   >{item.fajta_fajta} </Text>
-          <Text style={{color:"green",fontSize:20,textAlign:"center",marginBottom:5}}   >{item.bevetel_osszeg}Ft </Text>
+          <Text style={{color:"green",fontSize:20,textAlign:"center",marginBottom:5}}   >{item.bevetel_osszeg} Ft </Text>
           
           <TouchableOpacity
         style={styles.kekgomb}
@@ -124,7 +124,7 @@ export default class FetchExample extends React.Component {
       </TouchableOpacity>
       
 
-      <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}>
+      <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:15}}>
 
               </Text>
           </View>
@@ -149,6 +149,8 @@ const styles = StyleSheet.create({
     width:300,
     marginLeft:"auto",
     marginRight:"auto",
-    marginBottom:5
+    marginBottom:5,
+    borderRadius:10,
+    borderWidth:3
   }
 });

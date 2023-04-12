@@ -101,30 +101,7 @@ osszeg=(szam)=>{
           <Text style={{color:'white',fontSize:30}}>Hozzáadás</Text>
         </TouchableOpacity>
 
-{/*}  
-      <View style={{ flex: 1, padding: 24 , marginTop:40}}>
-        
-        <FlatList
-          
-          keyExtractor={({ fajta_id }, index) => fajta_id}
-          renderItem={({ item }) => (
-
-            <View style={{marginBottom:30}}>
-              <View>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>{item.fajta_nev}</Text>
-              </View>
-              <Image   source={{uri:IP.ipcim+item.fajta_kep}} style={{width:300,height:300,alignSelf:'center'}}   />
-              <TouchableOpacity style={styles.button} onPress={async ()=>this.szavazat(item.fajta_id)}>
-              <View>
-                <Text style={{color:'white',fontSize:30}}>Összeg hozzáadása</Text>
-              </View>
-              </TouchableOpacity>           
-            </View>
-          )}
-        />
-      )
-    </View>
- */}     
+    
               </View>
             )}
           />
