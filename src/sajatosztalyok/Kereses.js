@@ -9,11 +9,12 @@ export default class App extends Component {
 
     this.state = {
       data: [],
-      isLoading: true
+      isLoading: true,
+      keresendo:""
     };
   }
 
-  async getMovies() {
+  async getData() {
     try {
       const response = await fetch(IP.ipcim+'kiadas');
       const json = await response.json();
@@ -27,23 +28,27 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.getMovies();
+    this.getData();
   }
 
   
-osszeg=(szam)=>{
-  //alert(szam)
+kereses=async()=>{
   var adatok={
-    bevitel1:szam
+    bevitel1:this.state.keresendo
   }
-  alert(adatok.bevitel1)
-  const response = fetch(IP.ipcim+'kiadas',{
+  const response = await fetch(IP.ipcim+'kereses',{
     method: "POST",
     body: JSON.stringify(adatok),
     headers: {"Content-type": "application/json; charset=UTF-8"}
   });
-    const text =  response.text();
-    console.log(text)
+  const json = await response.json();
+      console.log(json)
+      this.setState({ data: json });
+    
+}
+levag=(datum2)=>{
+let kecske=datum2.split('T')
+return kecske[0]
 }
 
 
@@ -56,8 +61,22 @@ osszeg=(szam)=>{
     const { data, isLoading } = this.state;
 
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40}}>
+      <View style={{ flex: 1, padding: 24 ,backgroundColor:'lightblue'}}>
         {isLoading ? <ActivityIndicator/> : (
+
+<View>
+<TextInput
+        style={{height: 40,border:"black",borderWidth:2,margin:5,borderRadius:10,padding:10,color:"blue"}}
+        onChangeText={(beirtszoveg)=>this.setState({keresendo:beirtszoveg})}
+        value={this.state.keresendo}
+        />
+<TouchableOpacity
+          style={styles.button}
+          onPress={async ()=>this.kereses()}
+        >
+          <Text style={{color:'white',fontSize:30}}>Keresés</Text>
+        </TouchableOpacity>
+
           <FlatList
             data={data}
             keyExtractor={({ kiadas_id }, index) => kiadas_id}
@@ -70,41 +89,29 @@ osszeg=(szam)=>{
                   
               </Text>
 
-              <TextInput style={{fontSize:25,borderColor:'Black',borderWidth:3}}>
-
-              </TextInput>
-              <TouchableOpacity
-          style={styles.button}
-          onPress={async ()=>this.szavazat(item.kiadas_koltsegfajta)}
-        >
-          <Text style={{color:'white',fontSize:30}}>Keresés</Text>
-        </TouchableOpacity>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
+              
+              
+              <Text style={{fontSize:30,color:'blue',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
                 </Text>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+              <Text style={{fontSize:30,color:'black',textAlign:'center'}}>
                 {item.kiadas_nev}
               </Text>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+              <Text style={{fontSize:30,color:'green',textAlign:'center'}}>
                 {item.kiadas_ar} ft
               </Text>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
-                {item.kiadas_datum}
+              <Text style={{fontSize:30,color:'purple',textAlign:'center'}}>
+                {this.levag(item.kiadas_datum)}
               </Text>
 
-              <Image source={require('./kepek/kep1.jpg')} style={{width:100,height:100,alignSelf:'center',color:'Red'}}   />
-             
-             <TouchableOpacity
-          style={styles.button}
-          onPress={async ()=>this.szavazat(item.kiadas_koltsegfajta)}
-        >
-          <Text style={{color:'white',fontSize:30}}>Hozzáadás</Text>
-        </TouchableOpacity>
-
-    
+              <Image source={{uri:item.fajta_kep}}
+              style={{width:100,height:100,alignSelf:'center',color:'Red',margin:10}}/>
+             <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
+                 
               </View>
             )}
           />
+          </View>
         )}
       </View>
 
@@ -129,10 +136,16 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#82AAE3",
+    borderRadius:10,
     padding: 10,
-    marginLeft:30,
-    marginRight:30
+    height:70,
+    marginLeft:20,
+    marginRight:20,
+    textAlign:'center',
+    borderRadius:10,
+    borderWidth:3
+    
   },
   countContainer: {
     alignItems: "center",

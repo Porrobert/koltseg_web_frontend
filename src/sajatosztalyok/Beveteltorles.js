@@ -113,7 +113,7 @@ export default class FetchExample extends React.Component {
           renderItem={({item}) => 
 
           <View >
-          <Text style={{color:"green",fontSize:20,textAlign:"center",backgroundColor:"lightblue"}}   >{item.fajta_fajta} </Text>
+          <Text style={{color:"green",fontSize:20,textAlign:"center",backgroundColor:"lightblue"}}   >{item.fajta_fajta}Fizetés </Text>
           <Text style={{color:"green",fontSize:20,textAlign:"center",marginBottom:5}}   >{item.bevetel_osszeg} Ft </Text>
           
           <TouchableOpacity
