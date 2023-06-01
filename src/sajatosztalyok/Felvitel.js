@@ -25,7 +25,7 @@ export default class App extends Component {
     };
   }
 
-  async getMovies() {
+  async getData() {
 //kiadas összegzese
 try {
   const response = await fetch(IP.ipcim+'osszegzes');
@@ -51,9 +51,6 @@ try {
       this.setState({ isLoading: false });
     }
 
-
-
-
     //kiadas lekerdezese
     try {
       const response = await fetch(IP.ipcim+'kiadas');
@@ -68,7 +65,7 @@ try {
   }
 
   componentDidMount() {
-    this.getMovies();
+    this.getData();
   }
 
 
@@ -122,11 +119,12 @@ onChange = (event, selectedDate) => {
 
 };
 
+torles=()=>{
+  this.setState({ar:""})
+  this.setState({kiadas_reszletek:""})
+}
 
 
-
-
-/*--------------------------------------- Datetimepicker függvényei vége*/
 
   render() {
     const { data, isLoading } = this.state;
@@ -144,7 +142,7 @@ onChange = (event, selectedDate) => {
         <View style={styles.buttonContainer}>
 
         
-        <Text style={{fontSize:25}}>Ár:</Text>
+        <Text style={{fontSize:25,color:"green"}}>Ár:</Text>
         <TextInput
         style={{color:"green",fontSize:20,borderWidth:2,borderColor:"black",borderRadius:10,padding:10,height:50}}
         onChangeText={(beirtszoveg)=>this.setState({ar:beirtszoveg})}
@@ -158,19 +156,23 @@ onChange = (event, selectedDate) => {
         value={this.state.kiadas_reszletek}
         />
 
-      <View>
+        <Text style={{fontSize:25,color:"purple"}}>Kiadás dátuma:</Text>
+        <TextInput
+        style={{color:"purple",fontSize:20,borderWidth:2,borderColor:"black",borderRadius:10,padding:10,height:50,marginBottom:10}}
+        onChangeText={(beirtszoveg)=>this.setState({kiadas_datum:beirtszoveg})}
+        value={this.state.kiadas_datum}
+        />
 
-      <Button style={{backgroundColor:"#82AAE3",color:"purple",borderRadius:10}}  onPress={this.showDatepicker} title="Dátum" />  
+        <Text style={{fontSize:25,color:"blue"}}>Kiadás fajtája:</Text>
+        <TextInput
+        style={{color:"blue",fontSize:20,borderWidth:2,borderColor:"black",borderRadius:10,padding:10,height:50,marginBottom:10}}
+        onChangeText={(beirtszoveg)=>this.setState({kiadas_:beirtszoveg})}
+        value={this.state.kiadas_datum}
+        />
 
-      </View>
 
-
-    <Text style={{marginLeft:"auto", marginRight:"auto", backgroundColor:"#82AAE3",textAlign:"center", width:200, margin:10,padding:10,borderRadius:10}}> 
-    {this.state.date.getFullYear()+"/"+(this.state.date.getMonth()+1)+"/"+this.state.date.getDate()}
-    </Text>
     
 
-        <Text style={{color:"blue",fontSize:20}}>Fajta:</Text> 
           
 
               <Button style={{backgroundColor:"#82AAE3"}} onPress={()=>this.felvitel()} title="Felvitel"/>

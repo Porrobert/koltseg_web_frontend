@@ -70,6 +70,11 @@ class App extends Component {
         <Nav className="mr-auto">
           <div className="navbar-nav mr-auto">
             
+            <li className="nav-item">
+              <Link to={"/Egyenleg"} className="nav-link">
+                Egyenleg
+              </Link>
+            </li>
 
             <li className="nav-item">
               <Link to={"/Kiadas"} className="nav-link">
@@ -84,40 +89,37 @@ class App extends Component {
             </li>
 
             <li className="nav-item">
-              <Link to={"/Beveteltorles"} className="nav-link">
-                Bevétel törlés
+              <Link to={"/Kereses"} className="nav-link">
+                Keresés
               </Link>
             </li>
+
             <li className="nav-item">
               <Link to={"/Felvitel"} className="nav-link">
                 Kiadás Felvitele
               </Link>
             </li>
+
             <li className="nav-item">
               <Link to={"/Felvitel_bev"} className="nav-link">
                 Bevétel Felvitele
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to={"/Kereses"} className="nav-link">
-                Keresés
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/Egyenleg"} className="nav-link">
-                Egyenleg
-              </Link>
-            </li>
 
-{/*-----------------------------------------------Admin menüpont */}
-            {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/Torles_kiadas"} className="nav-link">
                   Kiadás törlés
                 </Link>
               </li>
-            )}
 
+            <li className="nav-item">
+              <Link to={"/Beveteltorles"} className="nav-link">
+                Bevétel törlés
+              </Link>
+            </li>
+            
+{/*-----------------------------------------------Admin menüpont */}
+                  
             {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/Torles_koltsegfajta"} className="nav-link">

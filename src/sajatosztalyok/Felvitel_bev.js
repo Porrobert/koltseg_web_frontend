@@ -76,11 +76,16 @@ valfajta=(ertek)=>{
         onChangeText={(beirtszoveg)=>this.setState({osszeg:beirtszoveg})}
         value={this.state.osszeg}
       />
+        <Text style={styles.osszeg}>Fajta:</Text>
+        <TextInput
+        style={{height: 40,border:"black",borderWidth:2,borderRadius:10,padding:10,color:"blue", marginLeft: 20,fontSize:15,marginRight:20}}
+        onChangeText={(beirtszoveg)=>this.setState({kivalasztott:beirtszoveg})}
+        value={this.state.kivalasztott}
+      />
         <Text style={styles.datum}>Dátum:</Text>
         <TextInput
-        style={{height: 40, marginLeft: 40,fontSize:15}}
-        placeholder="Add meg a dátumot pl. 2023-01-24"
-        onChangeText={(beirtszoveg)=>this.setState({osszeg:beirtszoveg})}
+        style={{height: 40, marginLeft: 40,color:"purple",fontSize:15}}
+        onChangeText={(beirtszoveg)=>this.setState({ujdatum:beirtszoveg})}
         value={this.state.ujdatum}
       />
           </View>

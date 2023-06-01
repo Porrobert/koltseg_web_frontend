@@ -15,41 +15,49 @@ export default class App extends Component {
       isLoading: true
     };
   }
-  async getData() {
+  async adatok_Lekerdezese() {
   //kiadas összegzese
   try {
   const response = await fetch(IP.ipcim+'osszegzes');
   const json = await response.json();
   console.log(json)
-  this.setState({ data: json });
+  this.setState({ data2: json });
   this.setState({osszeg:json[0].osszeg})  
   } catch (error) {
   console.log(error);
   } finally {
   this.setState({ isLoading: false });
+
+  try {
+    const response = await fetch(IP.ipcim+'bevetelfizetes');
+    const json = await response.json();
+    console.log(json)
+    this.setState({ data2: json });
+    this.setState({osszeg2:json[0].osszeg2})  
+   } catch (error) {
+    console.log(error);
+   } finally {
+    this.setState({ isLoading: false });
+   }
+   this.setState({osszeg3: this.state.osszeg2-this.state.osszeg})
   }}
 
-  async getData() {
-//bevetel összegzese
-try {
-  const response = await fetch(IP.ipcim+'bevetelfizetes');
-  const json = await response.json();
-  console.log(json)
-  this.setState({ data2: json });
-  this.setState({osszeg2:json[0].osszeg2})  
-} catch (error) {
-  console.log(error);
-} finally {
-  this.setState({ isLoading: false });
-}}
 
+
+
+
+ 
+
+
+ 
+ 
 
 
 
 
 
   componentDidMount() {
-    this.getData();
+    this.adatok_Lekerdezese();
   }
 
 
@@ -61,15 +69,15 @@ try {
       <View style={{ flex: 1, padding: 24 ,backgroundColor:'lightblue'}}>
         
         <Text style={{fontSize:30}}> Összes kiadás:</Text>
-        <Text  style={{fontSize:30,color:"red"}}> {}250000 ft</Text>
+        <Text  style={{fontSize:30,color:"red"}}>{this.state.osszeg} ft {}</Text>
         <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
 
         <Text style={{fontSize:30}}> Összes bevétel:</Text>
-        <Text  style={{fontSize:30,color:"green"}}>{}500000 ft</Text>
+        <Text  style={{fontSize:30,color:"green"}}>{}{this.state.osszeg2} ft</Text>
         <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
 
         <Text style={{fontSize:30}}> Egyenleg:</Text>
-        <Text  style={{fontSize:30,color:"blue"}}>{}250000 ft</Text>
+        <Text  style={{fontSize:30,color:"blue"}}>{this.state.osszeg3} ft</Text>
         
 
 

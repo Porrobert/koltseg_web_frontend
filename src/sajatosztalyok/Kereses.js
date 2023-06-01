@@ -47,8 +47,8 @@ kereses=async()=>{
     
 }
 levag=(datum2)=>{
-let kecske=datum2.split('T')
-return kecske[0]
+let split=datum2.split('T')
+return split[0]
 }
 
 
@@ -66,7 +66,7 @@ return kecske[0]
 
 <View>
 <TextInput
-        style={{height: 40,border:"black",borderWidth:2,margin:5,borderRadius:10,padding:10,color:"blue"}}
+        style={{height: 40,border:"black",borderWidth:6,margin:5,borderRadius:10,padding:10,color:"blue"}}
         onChangeText={(beirtszoveg)=>this.setState({keresendo:beirtszoveg})}
         value={this.state.keresendo}
         />
@@ -143,7 +143,6 @@ const styles = StyleSheet.create({
     marginLeft:20,
     marginRight:20,
     textAlign:'center',
-    borderRadius:10,
     borderWidth:3
     
   },

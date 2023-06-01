@@ -16,7 +16,6 @@ export default class FetchExample extends React.Component {
   }
 
   torles=(szam)=>{
-    alert(szam)
     var bemenet={
       bevitel1:szam
     }
